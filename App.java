@@ -1,184 +1,85 @@
-package epam.hometask2.Newyeargiftbox;
-
-import java.util.Scanner;
-
-/**
- * Hello world!
- *
- */
+package epamtask3.Cal;
+import java.util.*;
+import java.io.*;
 public class App 
 {
-	 public static void main( String[] args )
-	    { 
-	        int total_weight = 0,quantity = 0,weight = 0,totalbox_wt = 0,total_candies = 0;
-	        char n1;
-	        Sweets collect;
-	        Boolean n=true;
-	        
-	        Scanner sc=new Scanner(System.in);
-	        System.out.println("fill the gift box with different types of sweets available below");
-	        while(n) {
-	       
-	        System.out.println("AVAILABLE SWEETS");
-	        System.out.println("1.DARK CHOCOLATE!!");
-	        System.out.println("2.MILK CHOCOLATE!!");
-	        System.out.println("3.WHITE CHOCOLATE!!");
-	        System.out.println("4.CANDIES!!");
-	        System.out.println("5.GULABJAMUN!!");
-	        System.out.println("6.RASGULLA!!");
-	        System.out.println("choose an item(1-6)");
-	        
-	        try {
-	        	
-	        switch(sc.next().charAt(0))
-	        {
-	        case '1':
-	        	   System.out.println("please enter the quantity");
-	        	   quantity=sc.nextInt();
-	        	   System.out.println("please enter the weight in grams");
-	        	   weight=sc.nextInt();
-	        	   collect= new Darkchocolate();
-	        	   total_weight=collect.calcwt( quantity, weight);
-	        	   totalbox_wt=totalbox_wt+total_weight;
-	        	   System.out.println("total weight of Darkchocolate is:"+total_weight+"grams");
-	        	   System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	               
-	        	   System.out.println("do you want any other item (y/n)");
-	        	   n1=sc.next().charAt(0);
-	        	      if(n1=='y'|| n1=='Y')
-	        	        { 
-	        	    	  n=true;
-	        	          break;
-	        	        }
-	        	     else
-	        		    {
-	        	    	 n=false;
-	                     System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	                     System.out.println("Total number of candies in the giftbox is:"+total_candies);
-	                     break;
-	                    }
-	        case '2':
-	        	   System.out.println("please enter the quantity");
-	        	   quantity=sc.nextInt();
-	        	   System.out.println("please enter the weight in grams");
-	        	   weight=sc.nextInt();
-	        	   collect=new Milkchocolate();
-	        	   total_weight=collect.calcwt(quantity, weight);
-	        	   totalbox_wt=totalbox_wt+total_weight;
+	private static Scanner sc;
 
-	        	   System.out.println("total weight of Milkchocolate is:"+total_weight+"grams");
-	        	   System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        	   System.out.println("do you want any other item (y/n)");
-	        	   n1=sc.next().charAt(0);
-	        	      if(n1=='y'|| n1=='Y')
-	        	        { 
-	        	    	  n=true;
-	        	          break; 
-	        	        }
-	        	      else
-	        		    {
-	        	    	  n=false;
-	        	          System.out.println("Toatal gift box weight is:"+totalbox_wt+"grams");
-	        	          System.out.println("Total number of candies in the giftbox is:"+total_candies);
-	        	          break;
-	        	        }
-	        case '3':
-	        	System.out.println("please enter the quantity");
-	        	quantity=sc.nextInt();
-	        	System.out.println("please enter the weight in grams");
-	        	weight=sc.nextInt();
-	        	collect=new Whitechocolate();
-	        	total_weight=collect.calcwt(quantity, weight);
-	        	totalbox_wt=totalbox_wt+total_weight;
-
-	        	System.out.println("total weight of whitechocolate is:"+total_weight+"grams");
-	        	System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        	System.out.println("do you want any other item (y/n)");
-	        	n1=sc.next().charAt(0);
-	        	if(n1=='y'|| n1=='Y')
-	        	    {n=true;
-	        	break;}
-	        	else
-	        		{n=false;
-	        		System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        		System.out.println("Total number of candies in the giftbox is:"+total_candies);
-	        	break;}
-	        case '4':
-	        	System.out.println("please enter the quantity");
-	        	quantity=sc.nextInt();
-	        	System.out.println("please enter the weight in grams");
-	        	weight=sc.nextInt();
-	        	collect=new Candies();
-	        	total_weight=collect.calcwt(quantity, weight);
-	        	totalbox_wt=totalbox_wt+total_weight;
-	        	total_candies=total_candies+quantity;
-
-	        	System.out.println("total weight of Candies is:"+total_weight+"grams");
-	        	System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        	System.out.println("do you want any other item (y/n)");
-	        	n1=sc.next().charAt(0);
-	        	if(n1=='y'|| n1=='Y')
-	        	    {n=true;
-	        	break;}
-	        	else
-	        		{n=false;
-	        		System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	                System.out.println("Total number of candies in the giftbox is:"+total_candies);
-	                
-	        	break;}
-	        case '5':
-	        	System.out.println("please enter the quantity");
-	        	quantity=sc.nextInt();
-	        	System.out.println("please enter the weight in grams");
-	        	weight=sc.nextInt();
-	        	collect=new Gulabjamun();
-	        	total_weight=collect.calcwt(quantity, weight);
-	        	totalbox_wt=totalbox_wt+total_weight;
-
-	        	System.out.println("total weight of Gulabjamun is:"+total_weight+"grams");
-	        	System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        	System.out.println("do you want any other item (y/n)");
-	        	n1=sc.next().charAt(0);
-	        	if(n1=='y'|| n1=='Y')
-	        	    {n=true;
-	        	break;}
-	        	else
-	        		{n=false;
-	        		System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        		System.out.println("Total number of candies in the giftbox is:"+total_candies);
-	        	break;}
-	        case '6':
-	        	System.out.println("please enter the quantity");
-	        	quantity=sc.nextInt();
-	        	System.out.println("please enter the weight in grams");
-	        	weight=sc.nextInt();
-	        	collect=new Rasgulla();
-	        	total_weight=collect.calcwt(quantity, weight);
-	        	totalbox_wt=totalbox_wt+total_weight;
-
-	        	System.out.println("total weight of Rasgulla is:"+total_weight+"grams");
-	        	System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        	System.out.println("do you want any other item (y/n)");
-	        	n1=sc.next().charAt(0);
-	        	if(n1=='y'|| n1=='Y')
-	        	    {n=true;
-	        	    
-	        	break;}
-	        	else
-	        		{n=false;
-	        		System.out.println("Total weight of gift box is:"+totalbox_wt+"grams");
-	        		System.out.println("Total number of candies in the giftbox is:"+total_candies);
-	        	break;}
-	        
-	 
-	        }}
-	        catch(Exception e)
-	        {
-	        	System.out.println("please select from 1-6 options");
-	            
-	        
-	        
-	    }}
-	        sc.close();
-}
+	public static void main(String[] args) throws IOException {
+	       Operations per;
+	       char ch;
+	       try {
+	    	   sc = new Scanner(System.in);
+	    	   boolean flag=true;
+	    	   int res = 0;
+	    	   while(flag) {
+	    		   System.out.print("Enter the First number : ");
+	    		   int a =sc.nextInt();
+	    		   System.out.print("Enter the Second number : ");
+	    		   int b =sc.nextInt();
+	    		   System.out.println("MENU\n1.ADDITION\n2.SUBTRACTION\n3.MULTIPLICATION\n4.DIVISION");
+	    		   System.out.print("Enter your choice : ");
+	    		   int c = sc.nextInt();
+	    		   switch(c) {
+	        			case 1:
+	        				System.out.print("The sum of "+a+" & "+b+" : ");
+	        				per = new Add();
+	        				res = per.op(a, b);
+	        				System.out.print(res);
+	        				System.out.println("\nDo you want to perform more operations?(y/n)");
+	        				ch=sc.next().charAt(0);
+	        				if(ch == 'y'||ch=='Y')
+	        					flag = true;
+	        				else {
+	        					flag = false;
+	        					System.out.println("Exit");
+	        				}
+	        				break;
+	        			case 2:
+	        				System.out.print("The difference of "+a+" & "+b+" : ");
+	        				per = new Sub();
+	        				res = per.op(a, b);
+	        				System.out.print(res);
+	        				System.out.println("\nDo you want to perform more operations?(y/n)");
+	        				ch=sc.next().charAt(0);
+	        				if(ch == 'y'||ch=='Y')
+	        					flag = true;
+	        				else {
+	        					flag = false;
+	        					System.out.println("Exit");
+	        				}break;
+	        			case 3:
+	        				System.out.print("The product of "+a+" & "+b+" : ");
+	        				per = new Mul();
+	        				res = per.op(a, b);
+	        				System.out.print(res);
+	        				System.out.println("\nDo you want to perform more operations?(y/n)");
+	        				ch=sc.next().charAt(0);
+	        				if(ch == 'y'||ch=='Y')
+	        					flag = true;
+	        				else {
+	        					flag = false;
+	        					System.out.println("Exit");
+	        				}break;
+	        			case 4:
+	        				System.out.print("The division of "+a+" & "+b+" : ");
+	        				per = new Div();
+	        				res = per.op(a, b);
+	        				System.out.print(res);
+	        				System.out.println("\nDo you want to perform more operations?(y/n)");
+	        				ch=sc.next().charAt(0);
+	        				if(ch == 'y'||ch=='Y')
+	        					flag = true;
+	        				else {
+	        					flag = false;
+	        					System.out.println("Exit");
+	        				}break;
+	        			default:
+	        				System.out.print("Please enter a valid input");
+	    		   	}
+	    	   	}
+	       	}catch(Exception e) {
+	       		System.out.println("Exception occurred!!!");
+		}
+	}
 }
